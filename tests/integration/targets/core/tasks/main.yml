@@ -1,0 +1,4 @@
+---
+
+- name: Test task
+  import_tasks: test_example.yml
