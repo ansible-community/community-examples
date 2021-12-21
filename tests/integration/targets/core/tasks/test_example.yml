@@ -1,0 +1,7 @@
+---
+- name: Print test message
+  debug:
+    msg: Hello
+
+- name: Just end play
+  meta: end_play
