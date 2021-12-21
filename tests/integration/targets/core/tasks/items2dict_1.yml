@@ -1,0 +1,25 @@
+---
+# This is an example of using the items2dict filter plugin.
+
+# As input we have the list [{'key': 'string1', 'value': 'string2'}].
+# We want to transform the list into a dictionary that have 'string1'
+# as a key and string2 as its value.
+# The following variable represents the list data before
+# applying the items2dict filter plugin:
+- name: Set the input list
+  set_fact:
+   input_list:
+     - key: string1
+       value: string2
+
+# After applying the items2dict filter plugin, we expect to
+# get a dictionary of the desired form:
+- name: Transform list to dictionary using items2dict plugin
+  set_fact:
+    result_dict: '{{ input_list | items2dict(key_name="key", value_name="value") }}'
+
+# Let's check if the result variable contains the data we want:
+- name: Check the result
+  assert:
+    that:
+      - result_dict['string1'] == 'string2'

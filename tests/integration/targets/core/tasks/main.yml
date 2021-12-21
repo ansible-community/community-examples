@@ -1,4 +1,6 @@
 ---
-
-- name: Test task
+- name: Test test example
   import_tasks: test_example.yml
+
+- name: Test items2dict examples
+  import_tasks: items2dict_1.yml
