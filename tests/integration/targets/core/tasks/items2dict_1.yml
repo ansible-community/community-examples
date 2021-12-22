@@ -1,9 +1,10 @@
 ---
 # This is an example of using the items2dict filter plugin.
 
-# As input we have the list [{'key': 'string1', 'value': 'string2'}].
-# We want to transform the list into a dictionary that have 'string1'
-# as a key and string2 as its value.
+# As input we have the list
+# [{'key': 'string1', 'value': 'string2'}, {'key': 'string3', 'value': 'string4}].
+# We want to transform the list into a dictionary that have 'string1' and 'string3'
+# as keys and 'string2' and 'string4' as their values.
 # The following variable represents the list data before
 # applying the items2dict filter plugin:
 - name: Set the input list
@@ -11,6 +12,8 @@
    input_list:
      - key: string1
        value: string2
+     - key: string3
+       value: string4
 
 # After applying the items2dict filter plugin, we expect to
 # get a dictionary of the desired form:
@@ -23,3 +26,4 @@
   assert:
     that:
       - result_dict['string1'] == 'string2'
+      - result_dict['string3'] == 'string4'
