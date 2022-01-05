@@ -2,6 +2,3 @@
 - name: Print test message
   debug:
     msg: Hello World
-
-- name: Just end play
-  meta: end_play
